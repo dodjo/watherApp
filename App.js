@@ -1,20 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, Alert,Button } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export default class extends React.Component {
+  componentDidMount() {
+    // Alert.alert('Привет','Это просто сообщение')
+  }
+
+  onPressButton(){
+    Alert.alert('Привет','Это просто сообщение')
+    styles.container.backgroundColor='red';
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        {/*<Text style={styles.text}>hello</Text>*/}
+        <Button title="Кнопка" onPress={this.onPressButton} color='red'/>
+        <StatusBar style="auto" />
+      </View>
+    );
+  }
+
 }
 
-const styles = StyleSheet.create({
+let styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text:{
+    color:'red',
+    width: '50%'
+  }
 });
